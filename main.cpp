@@ -23,32 +23,50 @@ public:
     Crear constructor de Cuadrado que herede del constructor de Figura.
     Asignar el área del cuadrado.
 */
-  class cuadrado :public Figura()
+  class Cuadrado :public Figura
   {
-    cuadrado(): figura(){};
-    cuadrado (int b, int h): Figura(b,h){
+    public:
+    Cuadrado(): Figura(){};
+    Cuadrado (int b): Figura(b,b){
+    setArea(b*b);
     };
-    cuadrado.
-  }
+    
+  };
 /*
     Implementa la clase Rectángulo que hereda de Figura.
     Crear constructor de Rectángulo que herede del constructor de Figura.
     Asignar el área del Rectángulo.
 */
-
+class Rectangulo :public Figura
+  {
+    public:
+    Rectangulo(): Figura(){};
+    Rectangulo (int b, int h): Figura(b,h){
+    setArea(b*h);
+    };
+  };
 /*
     Implementa la clase Triángulo que hereda de Figura.
     Crear constructor de Triángulo que herede del constructor de Figura.
     Asignar el área del Triángulo.
 */
 
+class Triangulo :public Figura
+  {
+    public:
+    Triangulo(): Figura(){};
+    Triangulo (int b, int h): Figura(b,h){
+    setArea((b*h)/2);
+    };
+  };
+
 int main () {
 
-    Square s(5);
+    Cuadrado s(5);
     cout << s.getArea() << endl; // 25
-    Rectangle r(5,5);
+    Rectangulo r(5,5);
     cout << r.getArea() << endl; // 25
-    Triangle t(5, 10);
+    Triangulo t(5, 10);
     cout << t.getArea() << endl; // 25
     return 0;
 }
@@ -61,9 +79,9 @@ Figura :: Figura(int b, int h)
 }
 void Figura::setArea(float a)
 {
-this->a=a;
+  this->a= a;
 }
-float getArea()
+float Figura :: getArea()
 {
     return this->a;
 }
